@@ -1,0 +1,43 @@
+seimi:
+  crawler:
+    enabled: true
+    names:
+      - User
+      - Borrow
+
+spring:
+  profiles:
+    active: prod
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: default
+  jpa:
+    show-sql: false
+    open-in-view: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  h2:
+    console:
+      enabled: true
+      path: /db
+
+  datasource:
+    url:
+      jdbc:h2:mem:db
+    driver-class-name: org.h2.Driver
+    username: sa
+#    password: 111111
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: INFO
+
+server:
+  port: 1111
+

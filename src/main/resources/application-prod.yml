@@ -1,0 +1,66 @@
+env:
+  prod
+
+#爬取地址配置  base64加密的.防止github search
+url:
+   login: ENC(aHR0cHM6Ly93d3cubG9uZ2RhaS5jb20vbG9naW4=)
+   overview: ENC(aHR0cHM6Ly93d3cubG9uZ2RhaS5jb20vb3ZlcnZpZXc=)
+   bankInvest: ENC(aHR0cHM6Ly93d3cubG9uZ2RhaS5jb20vY2dpLWJpbi9sb2Fucy9iYW5rSW52ZXN0)
+   loans: ENC(aHR0cHM6Ly93d3cubG9uZ2RhaS5jb20vbG9hbnM=)
+   host: ENC(aHR0cHM6Ly93d3cubG9uZ2RhaS5jb20v)
+   loanConfirm: ENC(aHR0cHM6Ly93d3cubG9uZ2RhaS5jb20vbG9hbkNvbmZpcm0vMTg4OTE4ODg/aW52ZXN0QW1vdW50PTUw)
+   redReward: ENC(aHR0cHM6Ly93d3cubG9uZ2RhaS5jb20vY2dpLWJpbi91c2VyL2NvdXBvbnMvcmVkUmV3YXJkcz9wYWdlU2l6ZT0xMDAmY3VycmVudFBhZ2U9MSZzdGF0dXM9MA==)
+   coupon: ENC(aHR0cHM6Ly93d3cubG9uZ2RhaS5jb20vY2dpLWJpbi91c2VyL2NvdXBvbnMvY291cG9uP3BhZ2VTaXplPTEwMDAmY3VycmVudFBhZ2U9MSZzdGF0dXM9MA==)
+   transfers: ENC(aHR0cHM6Ly93d3cubG9uZ2RhaS5jb20vdHJhbnNmZXJEZWJ0cw==)
+
+
+#微信企业号配置
+qywx:
+  notify: true
+  corpId: wx7250b3b504d9d590
+  assistantSecret: WOrKJqkKdYTOYVAUxcd6tqsGHkHRWQCDvHivJzfBFgc
+
+#账号配置
+accounts:
+  account:
+    - username: xxxx
+      password: yyyy
+      weChat: auh
+      #投资配置
+      invest:
+        #散标配置
+        borrow:
+          open: true
+          notify: true
+          level: RIGHT_NOW
+          id: 0
+          useCoupon: true
+          useRedReward: false
+          minInvestAmount: 0
+          minRate: 1
+          maxRate: 1000
+          maxDay: 400
+          minDay: 0
+          canTransfer: true
+        #债转
+        transfer:
+          open: true
+          notify: true
+          minRate: 0
+          maxRate: 0
+          maxDay: 0
+          minDay: 0
+
+# task 开关
+# borrow ,transfer 用于监控标的,发送微信通知的.
+# user,invest 用于自动投标
+task:
+  borrow: open
+  transfer: open
+  invest: false
+  user: false
+
+
+
+
+
