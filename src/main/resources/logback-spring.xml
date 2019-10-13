@@ -6,9 +6,9 @@
     </appender>
 
     <appender name="qywx" class="name.auh.util.WeChatAppender">
-<!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
-<!--            <level>ERROR</level>-->
-<!--        </filter>-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
     </appender>
 
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -43,6 +43,6 @@
         <appender-ref ref="console"/>
         <appender-ref ref="file"/>
         <appender-ref ref="error"/>
-<!--        <appender-ref ref="qywx"/>-->
+        <appender-ref ref="qywx"/>
     </root>
 </configuration>

@@ -11,14 +11,11 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class WeChatConfig {
 
-    @Value("${qywx.assistantSecret}")
-    String assistantSecret;
-
-    @Value("${qywx.corpId}")
-    String corpId;
-
     @Bean
-    public WxCpServiceImpl wxCpInMemoryConfigStorage() {
+    public WxCpServiceImpl wxCpInMemoryConfigStorage(@Value("${qywx.assistantSecret}")
+                                                             String assistantSecret,
+                                                     @Value("${qywx.corpId}")
+                                                             String corpId) {
         WxCpInMemoryConfigStorage config = new WxCpInMemoryConfigStorage();
         config.setCorpId(corpId);      // 设置微信企业号的appid
         config.setCorpSecret(assistantSecret);  // 设置微信企业号的app corpSecret
