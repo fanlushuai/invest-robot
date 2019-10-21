@@ -7,6 +7,8 @@ import me.chanjar.weixin.cp.api.impl.WxCpServiceImpl;
 import me.chanjar.weixin.cp.bean.WxCpMessage;
 import name.auh.config.WeChatConfig;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 日志用微信的方式输出。
  * 配置error日志使用
@@ -23,6 +25,10 @@ public class WeChatAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
             return;
         }
         try {
+            if (LimitUtil.overRate(event.getMessage(), 1, 5, TimeUnit.MINUTES)) {
+                return;
+            }
+
             wxCpService.messageSend(WxCpMessage.TEXT().agentId(0).toUser("@all").content(event.getMessage()).build());
         } catch (WxErrorException e) {
             e.printStackTrace();
