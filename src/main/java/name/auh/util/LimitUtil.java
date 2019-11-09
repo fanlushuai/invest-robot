@@ -42,7 +42,7 @@ public class LimitUtil {
             if (ct == 0) {
                 System.out.println("重新计数");
             }
-            return ct > times;
+            return ct + 1 > times;
         } catch (ExecutionException e) {
             System.out.println("inc error");
             return true;
