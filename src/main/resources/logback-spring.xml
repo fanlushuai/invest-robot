@@ -37,6 +37,7 @@
     </appender>
 
     <logger name="name.auh" level="INFO"/>
+<!--    <logger name="me.chanjar.weixin.cp.api.impl" level="DEBUG"/>-->
 <!--    <logger name="org.springframework" level="DEBUG"/>-->
 
     <root level="INFO">
