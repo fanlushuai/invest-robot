@@ -25,8 +25,8 @@ spring:
       path: /db
 
   datasource:
-    url:
-      jdbc:h2:mem:db
+    url: #http://www.h2database.com/html/features.html   丢失连接导致表有时候找不到 加DB_CLOSE_DELAY=-1
+      jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
     driver-class-name: org.h2.Driver
     username: sa
 #    password: 111111
